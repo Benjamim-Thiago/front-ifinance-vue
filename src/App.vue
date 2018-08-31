@@ -31,7 +31,7 @@
 </template>
 
 <script>
-//import 'materialize-css'
+import 'bootstrap'
 export default {
   name: 'App',
   styles: [

@@ -1,18 +1,21 @@
 <template>
-   <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
-    <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
-    <p>Valor inicial da conta: R$ {{ account.balance_initial }}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <p>Saldo: <span class="btn disabled">{{account.balance}}</span></p>
-  </ul>
-  <div class="card-body">
-    <a :href="'#/contas/' +  account.id + '/editar'" class="btn btn-primary">Editar</a>
-    <a href="" class="btn btn-danger" @click.prevent="remove(account.id)">Excluir</a>
-  </div>
+<div class="col-md-12">
+  <div class="row justify-content-center">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
+          <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
+          <p>Valor inicial da conta: R$ {{ account.balance_initial }}</p>
+          <p>Saldo: <span class="btn disabled">{{account.balance}}</span></p>
+        </div>
+        
+        <div class="card-body">
+          <a :href="'#/contas/' +  account.id + '/editar'" class="btn btn-primary">Editar</a>
+          <a href="" class="btn btn-danger" @click.prevent="remove(account.id)">Excluir</a>
+        </div>
+      </div>
+    </div>
 </div>
 </template>
 
