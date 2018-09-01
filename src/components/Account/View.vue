@@ -1,18 +1,21 @@
 <template>
-<div class="col-md-12">
+<div>
   <div class="row justify-content-center">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
-          <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
-          <p>Valor inicial da conta: R$ {{ account.balance_initial }}</p>
-          <p>Saldo: <span class="btn disabled">{{account.balance}}</span></p>
-        </div>
-        
-        <div class="card-body">
-          <a :href="'#/contas/' +  account.id + '/editar'" class="btn btn-primary">Editar</a>
-          <a href="" class="btn btn-danger" @click.prevent="remove(account.id)">Excluir</a>
+      <div class="card col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+             <div class="card-body">
+                <h5 class="card-title">{{ account.title }}</h5>
+                <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
+                <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
+                <p>Valor inicial da conta: R$ {{ account.balance_initial }}</p>
+                <p>Saldo: <span class="btn disabled">{{account.balance}}</span></p>
+                <div class="card-body">
+                  <a :href="'#/contas/' +  account.id + '/editar'" class="btn btn-primary">Editar</a>
+                  <a href="" class="btn btn-danger" @click.prevent="remove(account.id)">Excluir</a>
+                </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>

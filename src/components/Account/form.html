@@ -1,4 +1,7 @@
-<div class="row">
+<div>
+    <span v-if="flag=='1'">
+        {{accountFind}}
+    </span>
     <div class="card">
         <div class="card-header">
             <h4>Contas bancárias <small>{{ sub_title }}</small></h4>
@@ -7,43 +10,60 @@
             <div class="card-title">
                     <h5>Dados da conta</h5>
             </div>
-            <form class="row" autocomplete="off">
-               
-                <div class="input-field col s6">
-                    <input type="text" id="title" class="validate" placeholder="Como você prefere identificar esta conta?" required>
-                    <label for="title" class="active">Título da conta</label>
+            <form autocomplete="off" @submit.prevent="save()">
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="form-group">
+                           <label for="title" class="active">Título da conta</label>
+                           <input v-model="account.title" type="text" id="title" class="form-control" placeholder="Como você prefere identificar esta conta?" required>
+                       </div>
+                   </div>
+                   <div class="col-md-3">
+                       <div class="form-group">
+                           <label for="title" class="active">Valor inicial</label>
+                           <input v-model="account.balance_initial" type="text" id="balance_initial" class="form-control" placeholder="Qual o valor inicial?" required>
+                       </div>
+                   </div>
+                   <div class="col-md-3" v-if="flag=='1'">
+                    <div class="form-group">
+                        <label for="title" class="active">Valor de saldo</label>
+                        <input v-model="account.balance" type="text" id="balance" class="form-control" placeholder="Qual o valor Saldo?" required>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input type="text" id="balance_initial" class="validate" placeholder="Qual o valor inicial desta conta?" required>
-                    <label for="title" class="active">Valor inicial</label>
-                </div>
-                <div class="input-field col s6">
-                        <select v-model="account.bank_id">
-                            <option value="0">Escolha um banco</option>
-                            <option v-for="bank in banks.data" :value="bank.id" class="left circle">{{ bank.title }} ({{bank.code}})</option>
-                        </select>
-                    <!--<ul>
-                        <li v-for="bank in banks.data">{{ bank.title }}</li>
-                    </ul>-->
-
-                    <label>Qual seu banco?</label>
+               </div>
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="form-group">
+                           <label>Qual seu banco?</label>
+                           <select class="form-control" v-model="account.bank_id">
+                               <option value="0">Escolha um banco</option>
+                               <option v-for="bank in banks.data" :value="bank.id">{{ bank.title }} ({{bank.code}})</option>
+                           </select>
+                       </div>                     
+                   </div>
                    
+                   <div class="col-md-2">
+                       <div class="form-group">
+                            <label for="agency" class="active">Número da agência</label>
+                            <input v-model="account.agency" type="number" id="agency" class="form-control" placeholder="Nº da agencia?" required>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="accont_number" class="active">Número da conta</label>
+                            <input v-model="account.account_number" type="number" id="account_number" class="form-control" placeholder="Nº da conta?" required>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <label for="agency" class="active">Número da agência</label>
-                    <input type="number" id="agency" class="validate" placeholder="Qual o número da sua agencia?" required>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input type="submit"class="btn btn-success" value="salvar">
+                        </div>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input type="number" id="account_number" class="validate" placeholder="Qual o número da sua conta?" required>
-                    <label for="accont_number" class="active">Número da conta</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="submit"class="waves-effect waves-light btn-large blue-grey darken-4" value="salvar">
-                </div>
+ 
             </form>
-        </div>
-        <div class="card-action">
-            <a href="#/contas">Voltar</a>
         </div>
     </div>
 </div>
