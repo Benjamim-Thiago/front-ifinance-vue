@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
       <div class="row justify-content-center">
-          <div class="card col-md-6">
+          <div class="card col-md-8">
             <div class="card-body">
               <h5 class="card-title">Gerenciamento de Contas</h5>
               <a href="#/contas/novo" class="btn btn-primary float-right">Nova Conta</a>
@@ -30,10 +30,6 @@
         </div> 
   </div>
 </template>
-
-
-
-
 <script>
 import Pagination from './../SharedComponents/Pagination'
 export default {

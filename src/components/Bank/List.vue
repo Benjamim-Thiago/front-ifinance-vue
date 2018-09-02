@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="row justify-content-center">
         <div class="card col-md-12">
           <div class="card-body">
