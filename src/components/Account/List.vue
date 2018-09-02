@@ -1,30 +1,33 @@
 <template>
   <div>
-    <div class="col-md-12">
       <div class="row justify-content-center">
-        <div class="row">
-          
-          <div class="card">
+          <div class="card col-md-6">
             <div class="card-body">
               <h5 class="card-title">Gerenciamento de Contas</h5>
-              <p class="card-text">Contas</p>
+              <a href="#/contas/novo" class="btn btn-primary float-right">Nova Conta</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item" v-for="account in accounts.data" @click.prevent="goTo(account.id)">
-                <a href="" >
-                  {{ account.title }} &nbsp;
-                  <small> - agência: {{ account.agency }} / conta: {{ account.account_number }}  / código do banco: {{ account.bank.code }} </small>
-                </a>
-              </li>
-            </ul>
-            <div class="card-body">
-              <a href="#/contas/novo" class="btn btn-primary">Nova Conta</a>
-            </div>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Descrição</th>
+                  <th scope="col">Agência</th>
+                  <th scope="col">Conta</th>
+                  <th scope="col">Cod. Banco</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="account in accounts.data" @click.prevent="goTo(account.id)">
+                  <td>{{account.title}}</td>
+                  <td>{{account.agency}}</td>
+                  <td>{{account.account_number}}</td>
+                  <td>{{account.bank.code}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination totalPerPage="10" resource="accounts"></pagination>
           </div>
           
-        </div>
-      </div>
-    </div> 
+        </div> 
   </div>
 </template>
 
@@ -32,8 +35,12 @@
 
 
 <script>
+import Pagination from './../SharedComponents/Pagination'
 export default {
   name: 'accounts',
+  components:{
+      'pagination': Pagination
+    },
   methods: {
     goTo: function(id) {
       this.$router.push('/contas/' + id)
@@ -41,11 +48,8 @@ export default {
   },
   computed: {
     accounts() {
-      return this.$store.state.account.accountList
+      return this.$store.state.pagination.getList
     }
-  },
-  created () {
-    this.$store.dispatch('getAccounts')
   }
 }
 </script>

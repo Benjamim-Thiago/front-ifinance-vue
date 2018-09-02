@@ -15,6 +15,9 @@
                       <a class="nav-link" href="#/">Financeiro</a>
                     </li>
                     <li class="nav-item active">
+                      <a class="nav-link" href="#/bancos">Bancos</a>
+                    </li>
+                    <li class="nav-item active">
                       <a class="nav-link" href="#/contas">Conta</a>
                     </li>
                 </ul>
