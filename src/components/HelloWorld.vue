@@ -84,12 +84,16 @@
 </template>
 
 <script>
+import LoginInterceptors from './../components/Login/interceptors'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  created() {
+    LoginInterceptors.check_empty_token(this.$router)
   }
 }
 </script>

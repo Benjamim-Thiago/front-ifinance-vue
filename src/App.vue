@@ -21,6 +21,12 @@
                       <a class="nav-link" href="#/contas">Conta</a>
                     </li>
                 </ul>
+
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="" @click.prevent="logout()">Sair</a>
+                  </li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -35,12 +41,19 @@
 
 <script>
 import 'bootstrap'
+import LoginInterceptors from './components/Login/interceptors'
+
 export default {
   name: 'App',
   styles: [
     require('bootstrap/dist/css/bootstrap.min.css'),
     require('ionicons/dist/css/ionicons.min.css')
-  ]
+  ],
+  methods: {
+    logout: function() {
+      LoginInterceptors.logout(this.$router)
+    }
+  }
 }
 
 </script>
