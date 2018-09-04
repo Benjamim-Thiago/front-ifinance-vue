@@ -5,7 +5,6 @@ import AccountView from '../components/Account/View'
 import AccountCreate from '../components/Account/Create'
 import AccountEdit from '../components/Account/Edit'
 import Login from '../components/Login/Form'
-import Logout from '../components/Login/Logout'
 
 const routes = [
   { path: '/', name: 'Hello', component: HelloWorld },
