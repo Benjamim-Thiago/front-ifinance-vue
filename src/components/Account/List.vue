@@ -5,7 +5,7 @@
             <div class="card-body">
               <h5 class="card-title">Gerenciamento de Contas</h5>
               <a href="#/contas/novo" class="btn btn-primary float-right">Nova Conta</a>
-              <search resource="accounts"></search>
+              
             </div>
             <table class="table">
               <thead class="thead-dark">
@@ -33,12 +33,10 @@
 </template>
 <script>
 import Pagination from './../SharedComponents/Pagination'
-import Search from './../SharedComponents/Search'
 export default {
   name: 'accounts',
   components:{
-      'pagination': Pagination,
-      'search': Search
+      'pagination': Pagination
     },
   methods: {
     goTo: function(id) {
